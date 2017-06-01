@@ -10,9 +10,11 @@ import {
   TableRowColumn,
 } from 'material-ui/Table';
 
-import IconButton from 'material-ui/IconButton';
+import IconButton from 'material-ui/IconButton'
 import ModeEdit from 'material-ui/svg-icons/editor/mode-edit'
 import ModeDelete from 'material-ui/svg-icons/action/delete'
+import FlatButton from 'material-ui/FlatButton'
+
 import Layout from '../components/layout'
 
 const style = {
@@ -47,7 +49,7 @@ export default class Index extends React.Component {
           <TableBody displayRowCheckbox={false}>
             {crawlers.map(crawler => (
             <TableRow>
-              <TableRowColumn>{crawler}</TableRowColumn>
+              <TableRowColumn><FlatButton label={crawler}/></TableRowColumn>
               <TableRowColumn>
                 <IconButton tooltip="Edit">
                   <ModeEdit />
