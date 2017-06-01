@@ -17,16 +17,6 @@ import FlatButton from 'material-ui/FlatButton'
 
 import Layout from '../components/layout'
 
-const style = {
-  paper: {
-    height: 200,
-    width: 300,
-    margin: 20,
-    textAlign: 'center',
-    display: 'inline-block'
-  }
-}
-
 export default class Index extends React.Component {
   static async getInitialProps () {
     const res = await fetch('http://localhost:3000/crawler')
