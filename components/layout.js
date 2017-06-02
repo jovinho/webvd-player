@@ -1,7 +1,5 @@
 import * as React from 'react'
 import Head from 'next/head'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import SideMenu from './side-menu'
 import 'isomorphic-fetch'
 
 import AppBar from './app-bar'
