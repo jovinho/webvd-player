@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 import RaisedButton from 'material-ui/RaisedButton'
 import {
@@ -39,7 +40,7 @@ export default class Index extends React.Component {
           <TableBody displayRowCheckbox={false}>
             {crawlers.map(crawler => (
             <TableRow>
-              <TableRowColumn><FlatButton label={crawler}/></TableRowColumn>
+              <TableRowColumn><Link prefetch href={'/series/'+crawler}><FlatButton label={crawler}/></Link></TableRowColumn>
               <TableRowColumn>
                 <IconButton tooltip="Edit">
                   <ModeEdit />
