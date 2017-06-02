@@ -1,11 +1,46 @@
 import React from 'react'
 
-import RaisedButton from 'material-ui/RaisedButton'
-
 import Layout from '../components/layout'
+import RaisedButton from 'material-ui/RaisedButton'
+import TextField from 'material-ui/TextField'
 
-export default () => (
- <Layout>
-    <RaisedButton label="Default" />
-  </Layout>
-)
+const style = {
+
+}
+
+export default class Index extends React.Component {
+	static async getInitialProps ({ query }) {
+		return {
+			series: query.id
+		}
+	}
+
+	constructor (props) {
+  	super(props)
+    this.state = {
+			series: props.series,
+			episode: ''
+		}
+  }
+
+	 handleChangeEpisode = (event) => {
+    this.setState({
+      episode: event.target.value,
+    })
+  }
+
+  render () {
+		return (
+		<Layout>
+			<div>
+				<TextField
+				  type="text"
+				  name="episode"
+				  hintText="Digite aqui o episodio"
+					value={this.state.episode}
+					onChange={this.handleChangeEpisode} />
+				 <RaisedButton label="Buscar" primary={true} />
+			</div>
+		</Layout>)
+	}
+}
