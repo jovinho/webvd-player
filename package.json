@@ -18,8 +18,8 @@
     "material-ui": "^0.18.1",
     "next": "^3.0.0-beta6",
     "next-routes": "^1.0.27",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
+    "react": "15.4.x",
+    "react-dom": "15.4.x",
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.6.0",
     "video-react": "^0.8.3"

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import {List, ListItem} from 'material-ui/List';
+import Link from 'next/link'
 
 class SideMenu extends Component {
 	constructor () {
@@ -21,7 +22,7 @@ class SideMenu extends Component {
 				<AppBar title="WebVD-Player" onLeftIconButtonTouchTap={() => this._toggleDrawer()} />
 				<Drawer docked={false} open={this.state.drawerOpened} onRequestChange={() => this._toggleDrawer()}>
 					<List>
-						<ListItem>Lista de Animes</ListItem>
+						<Link prefetch href='/'><ListItem>Lista de Séries</ListItem></Link>
 					</List>
 				</Drawer>
 			</div>
