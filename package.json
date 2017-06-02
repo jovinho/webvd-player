@@ -17,8 +17,24 @@
     "isomorphic-fetch": "^2.2.1",
     "material-ui": "^0.18.1",
     "next": "^3.0.0-beta6",
+    "next-routes": "^1.0.27",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-tap-event-plugin": "^2.0.1"
+  },
+  "now": {
+    "name": "webvd-playert",
+    "type": "npm",
+    "files": [
+      "api",
+      "components",
+      "crawlers",
+      "pages",
+      "server.js",
+      "package.json"
+    ],
+    "engines": {
+      "node": "7.x.x"
+    }
   }
 }
