@@ -1,9 +1,9 @@
-import React from 'react'
+import Form from 'muicss/lib/react/form'
+import Input from 'muicss/lib/react/input'
+import Button from 'muicss/lib/react/button'
+import Container from 'muicss/lib/react/container'
 
 import Layout from '../components/layout'
-import RaisedButton from 'material-ui/RaisedButton'
-import TextField from 'material-ui/TextField'
-
 import Player from '../components/player'
 
 export default class Index extends React.Component {
@@ -34,7 +34,9 @@ export default class Index extends React.Component {
     })
   }
 
-	async searchEpisode() {
+	async searchEpisode(e, ev) {
+		console.log(`this`, this)
+		e.preventDefault()
 		const series = this.state.series
 		const episode = this.state.episode
 
@@ -46,23 +48,20 @@ export default class Index extends React.Component {
   render () {
 		return (
 		<Layout>
-			<div>
-				<TextField
-				  type="text"
-				  name="episode"
-				  hintText="Digite aqui o episodio"
-					value={this.state.episode}
-					onChange={this.handleChangeEpisode} />
-					<br />
-				 <RaisedButton label="Buscar" primary={true} onClick={this.searchEpisode.bind(this)}/>
-				 <br />
-				 <br />
-				 <br />
-				 {
-					 this.state.episodeUrl &&
-					 <Player src={this.state.episodeUrl} />
-				 }
-			</div>
+			<Container>
+				<br/>
+				<br/>
+				<Form onSubmit={this.searchEpisode.bind(this)}>
+        	<legend>Busca de episódio</legend>
+					<Input label="Número do episódio" required floatingLabel={true} value={this.state.episode} onChange={this.handleChangeEpisode} />
+					<Button variant="raised">Buscar</Button>
+				</Form>
+				<br />
+				{
+					this.state.episodeUrl &&
+					<Player src={this.state.episodeUrl} />
+				}
+			</Container>
 		</Layout>)
 	}
 }

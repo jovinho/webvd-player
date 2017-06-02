@@ -4,26 +4,22 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import SideMenu from './side-menu'
 import 'isomorphic-fetch'
 
-import '../components/tap_events'
-
-import injectTapEventPlugin from 'react-tap-event-plugin'
+import AppBar from './app-bar'
 
 const Layout = ({ children }) => (
   <div>
     <Head>
       <title>WebVD - Player</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500'/>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+      <link href="https://cdn.muicss.com/mui-0.9.16/css/mui.min.css" rel="stylesheet" type="text/css" media="screen" />
       <link rel='stylesheet' href='/static/video-react.css'/>
-
     </Head>
 
-		<MuiThemeProvider>
-      <div>
-        <SideMenu />
-			  {children}
-      </div>
-		</MuiThemeProvider>
+    <AppBar />
+
+	  {children}
+
   </div>
 )
 
