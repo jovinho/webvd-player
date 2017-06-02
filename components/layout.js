@@ -14,6 +14,8 @@ const Layout = ({ children }) => (
       <title>WebVD - Player</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500'/>
+      <link rel='stylesheet' href='/static/video-react.css'/>
+
     </Head>
 
 		<MuiThemeProvider>

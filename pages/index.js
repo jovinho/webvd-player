@@ -40,7 +40,7 @@ export default class Index extends React.Component {
           <TableBody displayRowCheckbox={false}>
             {crawlers.map(crawler => (
             <TableRow>
-              <TableRowColumn><Link prefetch href={'/series/'+crawler}><FlatButton label={crawler}/></Link></TableRowColumn>
+              <TableRowColumn><Link prefetch href={`/series?id=${crawler}`} as={`/series/${crawler}`}><FlatButton label={crawler}/></Link></TableRowColumn>
               <TableRowColumn>
                 <IconButton tooltip="Edit">
                   <ModeEdit />

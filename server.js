@@ -5,17 +5,18 @@ const { parse } = require('url')
 const next = require('next')
 
 const { list, create, get, remove } = require('./api/Crawler')
+const { findEpisode } = require('./api/CCrawler')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
-const handle = app.getRequestHandler()
+const handler = app.getRequestHandler()
 
 app.prepare()
 .then(() => {
   const server = express()
 
   server.use(bodyParser.text()); // for parsing serverlication/json
- 
+
   server.put('/crawler/:id', function(req, res) {
     return create(req).then(
       result => res.status(201).send(result)
@@ -48,8 +49,20 @@ app.prepare()
     )
   })
 
+  server.get('/api/series/:id', function(req, res) {
+    return findEpisode(req).then(
+      result => res.status(200).send(result)
+    ).catch(
+      err => res.status(500).send(err)
+    )
+  })
+
+   server.get('/series/:id', (req, res) => {
+    return app.render(req, res, '/series', Object.assign({}, req.params, req.query))
+  })
+
   server.get('*', (req, res) => {
-    return handle(req, res)
+    return handler(req, res)
   })
 
   server.listen(3000, (err) => {
