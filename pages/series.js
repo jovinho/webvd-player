@@ -35,12 +35,12 @@ export default class Index extends React.Component {
   }
 
 	async searchEpisode(e, ev) {
-		console.log(`this`, this)
 		e.preventDefault()
 		const series = this.state.series
 		const episode = this.state.episode
 
-		const res = await fetch(`http://localhost:3000/api/series/${series}?episode=${episode}`)
+		const mainUrl = window.location.origin
+		const res = await fetch(`${mainUrl}/api/series/${series}?episode=${episode}`)
     const url = await res.text()
 		this.handleChangeEpisodeUrl(url)
 	}

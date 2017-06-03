@@ -20,8 +20,9 @@ export default class Index extends React.Component {
     crawlers: []
   }
 
-  static async getInitialProps () {
-    const res = await fetch('http://localhost:3000/crawler')
+  static async getInitialProps ({ req }) {
+    const mainUrl = req ? 'http://localhost:3000' : window.location.origin
+    const res = await fetch(mainUrl + '/crawler')
     const json = await res.json()
     return { crawlers: json }
   }
